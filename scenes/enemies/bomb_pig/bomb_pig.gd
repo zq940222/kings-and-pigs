@@ -1,4 +1,4 @@
-extends EnemyBase
+extends "res://scenes/enemies/enemy_base.gd"
 
 const THROW_COOLDOWN := 3.0
 const THROW_SPEED := 250.0
@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 	if _throw_timer > 0.0:
 		_throw_timer -= delta
 	if player_ref != null and not is_dead:
-		var dist := global_position.distance_to(player_ref.global_position)
+		var dist: float = global_position.distance_to(player_ref.global_position)
 		if dist <= attack_range and _throw_timer <= 0.0:
 			flip_toward(player_ref.global_position.x)
 			throw_bomb()
@@ -31,10 +31,10 @@ func throw_bomb() -> void:
 	if bomb_scene == null:
 		push_error("BombPig: bomb.tscn not found")
 		return
-	var bomb := bomb_scene.instantiate()
+	var bomb: Node2D = bomb_scene.instantiate()
 	get_parent().add_child(bomb)
 	var offset := Vector2(30.0 * (1.0 if facing_right else -1.0), -20.0)
 	bomb.global_position = global_position + offset
-	var target_dir := (player_ref.global_position - bomb.global_position).normalized()
+	var target_dir: Vector2 = (player_ref.global_position - bomb.global_position).normalized()
 	bomb.launch(target_dir, THROW_SPEED)
 	_throw_timer = THROW_COOLDOWN

@@ -11,12 +11,12 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to("PatrolState")
 		return
 
-	var dir := sign(enemy.player_ref.global_position.x - enemy.global_position.x)
+	var dir: float = sign(enemy.player_ref.global_position.x - enemy.global_position.x)
 	enemy.velocity.x = dir * enemy.move_speed * 1.3
 	enemy.flip_toward(enemy.player_ref.global_position.x)
 	enemy.move_and_slide()
 
-	var dist := enemy.global_position.distance_to(enemy.player_ref.global_position)
+	var dist: float = enemy.global_position.distance_to(enemy.player_ref.global_position)
 	if dist <= enemy.attack_range:
 		state_machine.transition_to("EnemyAttackState")
 	elif dist > enemy.detect_range * 1.5:

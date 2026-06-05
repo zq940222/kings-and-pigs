@@ -1,4 +1,4 @@
-extends EnemyBase
+extends "res://scenes/enemies/enemy_base.gd"
 
 func _ready() -> void:
 	max_hp = 3

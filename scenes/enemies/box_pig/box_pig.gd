@@ -1,4 +1,4 @@
-extends EnemyBase
+extends "res://scenes/enemies/enemy_base.gd"
 
 var _is_shielding: bool = false
 
@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func _on_hurt(dmg: int, knockback: Vector2) -> void:
 	if _is_shielding and player_ref != null:
-		var player_on_front := (player_ref.global_position.x > global_position.x) == facing_right
+		var player_on_front: bool = (player_ref.global_position.x > global_position.x) == facing_right
 		if player_on_front:
 			return
 	super._on_hurt(dmg, knockback)

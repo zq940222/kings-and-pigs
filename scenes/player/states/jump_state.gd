@@ -4,8 +4,6 @@ class_name JumpState
 func enter(msg: Dictionary = {}) -> void:
 	player.animated_sprite.play("jump")
 	player.velocity.y = Player.JUMP_VELOCITY
-	var jump_sfx := load("res://assets/audio/jump.wav")
-	player.play_sfx(jump_sfx)
 	if msg.get("reset_double_jump", true):
 		player.has_double_jumped = false
 

@@ -22,7 +22,7 @@ var patrol_origin: Vector2 = Vector2.ZERO
 var facing_right: bool = true
 var is_dead: bool = false
 
-signal died(enemy: EnemyBase)
+signal died(enemy: Node)
 
 func _ready() -> void:
 	current_hp = max_hp
@@ -45,7 +45,7 @@ func _on_hurt(dmg: int, knockback: Vector2) -> void:
 	current_hp -= dmg
 	velocity = knockback
 	if has_method("update_phase"):
-		update_phase()
+		call("update_phase")
 	if current_hp <= 0:
 		is_dead = true
 		state_machine.transition_to("EnemyDeadState")

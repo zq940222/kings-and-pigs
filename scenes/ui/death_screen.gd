@@ -25,5 +25,5 @@ func _on_retry_pressed() -> void:
 	hide()
 	get_tree().paused = false
 	var last_point: String = SaveManager.save_data.get("last_save_point", "area1_save1")
-	var scene := SAVE_POINT_SCENE_MAP.get(last_point, "res://scenes/world/area1/area1_room1.tscn")
+	var scene: String = SAVE_POINT_SCENE_MAP.get(last_point, "res://scenes/world/area1/area1_room1.tscn")
 	GameManager.change_room(scene)

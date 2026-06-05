@@ -7,7 +7,7 @@ func _ready() -> void:
 	$VBoxContainer/MainMenuButton.pressed.connect(_on_main_menu_pressed)
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_just_pressed("pause"):
+	if event.is_action_pressed("pause"):
 		if visible:
 			_on_resume_pressed()
 		else:

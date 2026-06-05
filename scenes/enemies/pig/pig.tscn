@@ -1,10 +1,15 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene format=3]
 
 [ext_resource type="Script" path="res://scenes/enemies/pig/pig.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="2"]
 [ext_resource type="SpriteFrames" path="res://resources/sprite_frames/pig_frames.tres" id="3"]
 [ext_resource type="Script" path="res://scripts/hurtbox.gd" id="4"]
 [ext_resource type="Script" path="res://scripts/hitbox.gd" id="5"]
+[ext_resource type="Script" path="res://scenes/enemies/states/patrol_state.gd" id="6"]
+[ext_resource type="Script" path="res://scenes/enemies/states/chase_state.gd" id="7"]
+[ext_resource type="Script" path="res://scenes/enemies/states/enemy_attack_state.gd" id="8"]
+[ext_resource type="Script" path="res://scenes/enemies/states/enemy_hurt_state.gd" id="9"]
+[ext_resource type="Script" path="res://scenes/enemies/states/enemy_dead_state.gd" id="10"]
 
 [sub_resource type="RectangleShape2D" id="PigShape"]
 size = Vector2(20, 24)
@@ -33,6 +38,21 @@ shape = SubResource("PigShape")
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2")
 initial_state = NodePath("PatrolState")
+
+[node name="PatrolState" type="Node" parent="StateMachine"]
+script = ExtResource("6")
+
+[node name="ChaseState" type="Node" parent="StateMachine"]
+script = ExtResource("7")
+
+[node name="EnemyAttackState" type="Node" parent="StateMachine"]
+script = ExtResource("8")
+
+[node name="EnemyHurtState" type="Node" parent="StateMachine"]
+script = ExtResource("9")
+
+[node name="EnemyDeadState" type="Node" parent="StateMachine"]
+script = ExtResource("10")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 8
