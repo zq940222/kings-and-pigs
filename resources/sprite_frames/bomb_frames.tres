@@ -1,0 +1,57 @@
+[gd_resource type="SpriteFrames" load_steps=13 format=3]
+
+[ext_resource type="Texture2D" path="res://Kings and Pigs/Sprites/09-Bomb/Bomb On (52x56).png" id="tex_idle"]
+[ext_resource type="Texture2D" path="res://Kings and Pigs/Sprites/09-Bomb/Boooooom (52x56).png" id="tex_explode"]
+
+[sub_resource type="AtlasTexture" id="idle_0"]
+atlas = ExtResource("tex_idle")
+region = Rect2(0, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="idle_1"]
+atlas = ExtResource("tex_idle")
+region = Rect2(52, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="idle_2"]
+atlas = ExtResource("tex_idle")
+region = Rect2(104, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="idle_3"]
+atlas = ExtResource("tex_idle")
+region = Rect2(156, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="explode_0"]
+atlas = ExtResource("tex_explode")
+region = Rect2(0, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="explode_1"]
+atlas = ExtResource("tex_explode")
+region = Rect2(52, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="explode_2"]
+atlas = ExtResource("tex_explode")
+region = Rect2(104, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="explode_3"]
+atlas = ExtResource("tex_explode")
+region = Rect2(156, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="explode_4"]
+atlas = ExtResource("tex_explode")
+region = Rect2(208, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="explode_5"]
+atlas = ExtResource("tex_explode")
+region = Rect2(260, 0, 52, 56)
+
+[resource]
+animations = [{
+"frames": [{"duration": 1.0, "texture": SubResource("explode_0")}, {"duration": 1.0, "texture": SubResource("explode_1")}, {"duration": 1.0, "texture": SubResource("explode_2")}, {"duration": 1.0, "texture": SubResource("explode_3")}, {"duration": 1.0, "texture": SubResource("explode_4")}, {"duration": 1.0, "texture": SubResource("explode_5")}],
+"loop": false,
+"name": &"explode",
+"speed": 12.0
+}, {
+"frames": [{"duration": 1.0, "texture": SubResource("idle_0")}, {"duration": 1.0, "texture": SubResource("idle_1")}, {"duration": 1.0, "texture": SubResource("idle_2")}, {"duration": 1.0, "texture": SubResource("idle_3")}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]

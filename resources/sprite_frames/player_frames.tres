@@ -1,0 +1,187 @@
+[gd_resource type="SpriteFrames" load_steps=38 format=3]
+
+[ext_resource type="Texture2D" path="res://Kings and Pigs/Sprites/01-King Human/Idle (78x58).png" id="tex_idle"]
+[ext_resource type="Texture2D" path="res://Kings and Pigs/Sprites/01-King Human/Run (78x58).png" id="tex_run"]
+[ext_resource type="Texture2D" path="res://Kings and Pigs/Sprites/01-King Human/Jump (78x58).png" id="tex_jump"]
+[ext_resource type="Texture2D" path="res://Kings and Pigs/Sprites/01-King Human/Fall (78x58).png" id="tex_fall"]
+[ext_resource type="Texture2D" path="res://Kings and Pigs/Sprites/01-King Human/Attack (78x58).png" id="tex_attack"]
+[ext_resource type="Texture2D" path="res://Kings and Pigs/Sprites/01-King Human/Hit (78x58).png" id="tex_hit"]
+[ext_resource type="Texture2D" path="res://Kings and Pigs/Sprites/01-King Human/Dead (78x58).png" id="tex_dead"]
+
+[sub_resource type="AtlasTexture" id="idle_0"]
+atlas = ExtResource("tex_idle")
+region = Rect2(0, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="idle_1"]
+atlas = ExtResource("tex_idle")
+region = Rect2(78, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="idle_2"]
+atlas = ExtResource("tex_idle")
+region = Rect2(156, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="idle_3"]
+atlas = ExtResource("tex_idle")
+region = Rect2(234, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="idle_4"]
+atlas = ExtResource("tex_idle")
+region = Rect2(312, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="idle_5"]
+atlas = ExtResource("tex_idle")
+region = Rect2(390, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="idle_6"]
+atlas = ExtResource("tex_idle")
+region = Rect2(468, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="idle_7"]
+atlas = ExtResource("tex_idle")
+region = Rect2(546, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="idle_8"]
+atlas = ExtResource("tex_idle")
+region = Rect2(624, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="idle_9"]
+atlas = ExtResource("tex_idle")
+region = Rect2(702, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="idle_10"]
+atlas = ExtResource("tex_idle")
+region = Rect2(780, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="run_0"]
+atlas = ExtResource("tex_run")
+region = Rect2(0, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="run_1"]
+atlas = ExtResource("tex_run")
+region = Rect2(78, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="run_2"]
+atlas = ExtResource("tex_run")
+region = Rect2(156, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="run_3"]
+atlas = ExtResource("tex_run")
+region = Rect2(234, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="run_4"]
+atlas = ExtResource("tex_run")
+region = Rect2(312, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="run_5"]
+atlas = ExtResource("tex_run")
+region = Rect2(390, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="run_6"]
+atlas = ExtResource("tex_run")
+region = Rect2(468, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="run_7"]
+atlas = ExtResource("tex_run")
+region = Rect2(546, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="jump_0"]
+atlas = ExtResource("tex_jump")
+region = Rect2(0, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="fall_0"]
+atlas = ExtResource("tex_fall")
+region = Rect2(0, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="attack_0"]
+atlas = ExtResource("tex_attack")
+region = Rect2(0, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="attack_1"]
+atlas = ExtResource("tex_attack")
+region = Rect2(78, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="attack_2"]
+atlas = ExtResource("tex_attack")
+region = Rect2(156, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="hit_0"]
+atlas = ExtResource("tex_hit")
+region = Rect2(0, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="hit_1"]
+atlas = ExtResource("tex_hit")
+region = Rect2(78, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="dead_0"]
+atlas = ExtResource("tex_dead")
+region = Rect2(0, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="dead_1"]
+atlas = ExtResource("tex_dead")
+region = Rect2(78, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="dead_2"]
+atlas = ExtResource("tex_dead")
+region = Rect2(156, 0, 78, 58)
+
+[sub_resource type="AtlasTexture" id="dead_3"]
+atlas = ExtResource("tex_dead")
+region = Rect2(234, 0, 78, 58)
+
+[resource]
+animations = [{
+"frames": [{"duration": 1.0, "texture": SubResource("attack_0")}, {"duration": 1.0, "texture": SubResource("attack_1")}, {"duration": 1.0, "texture": SubResource("attack_2")}],
+"loop": false,
+"name": &"attack1",
+"speed": 15.0
+}, {
+"frames": [{"duration": 1.0, "texture": SubResource("attack_0")}, {"duration": 1.0, "texture": SubResource("attack_1")}, {"duration": 1.0, "texture": SubResource("attack_2")}],
+"loop": false,
+"name": &"attack2",
+"speed": 15.0
+}, {
+"frames": [{"duration": 1.0, "texture": SubResource("attack_0")}, {"duration": 1.0, "texture": SubResource("attack_1")}, {"duration": 1.0, "texture": SubResource("attack_2")}],
+"loop": false,
+"name": &"attack3",
+"speed": 15.0
+}, {
+"frames": [{"duration": 1.0, "texture": SubResource("hit_0")}],
+"loop": true,
+"name": &"block",
+"speed": 1.0
+}, {
+"frames": [{"duration": 1.0, "texture": SubResource("dead_0")}, {"duration": 1.0, "texture": SubResource("dead_1")}, {"duration": 1.0, "texture": SubResource("dead_2")}, {"duration": 1.0, "texture": SubResource("dead_3")}],
+"loop": false,
+"name": &"dead",
+"speed": 8.0
+}, {
+"frames": [{"duration": 1.0, "texture": SubResource("fall_0")}],
+"loop": false,
+"name": &"fall",
+"speed": 1.0
+}, {
+"frames": [{"duration": 1.0, "texture": SubResource("hit_0")}, {"duration": 1.0, "texture": SubResource("hit_1")}],
+"loop": false,
+"name": &"hurt",
+"speed": 10.0
+}, {
+"frames": [{"duration": 1.0, "texture": SubResource("idle_0")}, {"duration": 1.0, "texture": SubResource("idle_1")}, {"duration": 1.0, "texture": SubResource("idle_2")}, {"duration": 1.0, "texture": SubResource("idle_3")}, {"duration": 1.0, "texture": SubResource("idle_4")}, {"duration": 1.0, "texture": SubResource("idle_5")}, {"duration": 1.0, "texture": SubResource("idle_6")}, {"duration": 1.0, "texture": SubResource("idle_7")}, {"duration": 1.0, "texture": SubResource("idle_8")}, {"duration": 1.0, "texture": SubResource("idle_9")}, {"duration": 1.0, "texture": SubResource("idle_10")}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{"duration": 1.0, "texture": SubResource("jump_0")}],
+"loop": false,
+"name": &"jump",
+"speed": 1.0
+}, {
+"frames": [{"duration": 1.0, "texture": SubResource("run_0")}, {"duration": 1.0, "texture": SubResource("run_1")}, {"duration": 1.0, "texture": SubResource("run_2")}, {"duration": 1.0, "texture": SubResource("run_3")}, {"duration": 1.0, "texture": SubResource("run_4")}, {"duration": 1.0, "texture": SubResource("run_5")}, {"duration": 1.0, "texture": SubResource("run_6")}, {"duration": 1.0, "texture": SubResource("run_7")}],
+"loop": true,
+"name": &"roll",
+"speed": 20.0
+}, {
+"frames": [{"duration": 1.0, "texture": SubResource("run_0")}, {"duration": 1.0, "texture": SubResource("run_1")}, {"duration": 1.0, "texture": SubResource("run_2")}, {"duration": 1.0, "texture": SubResource("run_3")}, {"duration": 1.0, "texture": SubResource("run_4")}, {"duration": 1.0, "texture": SubResource("run_5")}, {"duration": 1.0, "texture": SubResource("run_6")}, {"duration": 1.0, "texture": SubResource("run_7")}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
