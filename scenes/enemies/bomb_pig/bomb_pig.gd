@@ -15,6 +15,15 @@ func _ready() -> void:
 	add_to_group("enemies")
 	super._ready()
 
+func _physics_process(delta: float) -> void:
+	if _throw_timer > 0.0:
+		_throw_timer -= delta
+	if player_ref != null and not is_dead:
+		var dist := global_position.distance_to(player_ref.global_position)
+		if dist <= attack_range and _throw_timer <= 0.0:
+			flip_toward(player_ref.global_position.x)
+			throw_bomb()
+
 func throw_bomb() -> void:
 	if player_ref == null:
 		return
