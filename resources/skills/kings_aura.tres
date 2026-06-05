@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SkillResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/skill_resource.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+skill_id = "kings_aura"
+display_name = "王者之气"
+description = "短时无敌并震慑场景内所有敌人"

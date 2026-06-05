@@ -88,3 +88,27 @@ func _on_hurt(damage: int, knockback: Vector2) -> void:
 func set_invincible(value: bool) -> void:
 	is_invincible = value
 	hurtbox.invincible = value
+
+func use_skill() -> void:
+	if has_shockwave and SaveManager.has_skill("shockwave"):
+		_cast_shockwave()
+	elif has_kings_aura and SaveManager.has_skill("kings_aura"):
+		_cast_kings_aura()
+
+func _cast_shockwave() -> void:
+	var wave_scene := load("res://scenes/player/shockwave.tscn")
+	if wave_scene == null:
+		push_error("Player: shockwave.tscn not found")
+		return
+	var wave := wave_scene.instantiate()
+	get_parent().add_child(wave)
+	wave.global_position = global_position
+	wave.direction = Vector2.RIGHT if facing_right else Vector2.LEFT
+
+func _cast_kings_aura() -> void:
+	set_invincible(true)
+	for enemy in get_tree().get_nodes_in_group("enemies"):
+		if enemy.has_method("stun"):
+			enemy.stun(2.0)
+	await get_tree().create_timer(3.0).timeout
+	set_invincible(false)

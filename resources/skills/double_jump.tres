@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SkillResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/skill_resource.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+skill_id = "double_jump"
+display_name = "二段跳"
+description = "空中可再跳一次"

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SkillResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/skill_resource.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+skill_id = "roll_upgrade"
+display_name = "翻滚强化"
+description = "翻滚距离+50%，无敌帧延长至0.6秒"

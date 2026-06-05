@@ -22,6 +22,9 @@ func physics_update(delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
 		state_machine.transition_to("AttackState")
 		return
+	if Input.is_action_just_pressed("skill") and Input.is_key_pressed(KEY_SHIFT):
+		player.use_skill()
+		return
 	if Input.is_action_pressed("block"):
 		state_machine.transition_to("BlockState")
 		return

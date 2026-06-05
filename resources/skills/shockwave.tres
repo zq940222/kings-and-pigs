@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SkillResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/skill_resource.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+skill_id = "shockwave"
+display_name = "冲击波斩"
+description = "释放前向冲击波，可远程命中敌人"
