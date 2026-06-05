@@ -16,7 +16,7 @@ func physics_update(delta: float) -> void:
 	if player.can_double_jump and not player.has_double_jumped and Input.is_action_just_pressed("jump"):
 		player.velocity.y = Player.JUMP_VELOCITY
 		player.has_double_jumped = true
-		state_machine.transition_to("JumpState")
+		state_machine.transition_to("JumpState", {"reset_double_jump": false})
 		return
 
 	if player.is_on_floor():

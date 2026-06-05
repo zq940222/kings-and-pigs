@@ -5,7 +5,6 @@ var state_machine: StateMachine = null
 var player: Player = null
 
 func _ready() -> void:
-	await owner.ready
 	player = owner as Player
 
 func enter(_msg: Dictionary = {}) -> void:

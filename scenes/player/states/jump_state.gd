@@ -1,10 +1,11 @@
 extends PlayerState
 class_name JumpState
 
-func enter(_msg: Dictionary = {}) -> void:
+func enter(msg: Dictionary = {}) -> void:
 	player.animated_sprite.play("jump")
 	player.velocity.y = Player.JUMP_VELOCITY
-	player.has_double_jumped = false
+	if msg.get("reset_double_jump", true):
+		player.has_double_jumped = false
 
 func physics_update(delta: float) -> void:
 	player.apply_gravity(delta)
