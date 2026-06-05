@@ -22,14 +22,14 @@ func _ready() -> void:
 
 func update_phase() -> void:
 	var hp_percent := float(current_hp) / float(max_hp)
+	if hp_percent <= 0.6 and not _minion_spawned:
+		_spawn_minions()
+		_minion_spawned = true
+		if current_phase == Phase.ONE:
+			current_phase = Phase.TWO
 	if hp_percent <= 0.3 and current_phase != Phase.THREE:
 		current_phase = Phase.THREE
 		move_speed = 140.0
-	elif hp_percent <= 0.6 and current_phase == Phase.ONE:
-		current_phase = Phase.TWO
-		if not _minion_spawned:
-			_spawn_minions()
-			_minion_spawned = true
 
 func _spawn_minions() -> void:
 	var pig_scene := load("res://scenes/enemies/pig/pig.tscn")

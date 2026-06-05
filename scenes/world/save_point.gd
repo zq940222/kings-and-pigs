@@ -12,7 +12,7 @@ func _on_body_entered(body: Node) -> void:
 		return
 	if _used_this_session:
 		return
-	_used_this_session = false
+	_used_this_session = true
 	_do_save(body)
 
 func _do_save(player: Node) -> void:
