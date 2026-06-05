@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 class_name Shockwave
 
 var direction: Vector2 = Vector2.RIGHT
@@ -9,6 +9,9 @@ const LIFETIME := 0.8
 
 var _lifetime_timer: float = LIFETIME
 
+func _ready() -> void:
+	body_entered.connect(_on_body_entered)
+
 func _physics_process(delta: float) -> void:
 	global_position += direction * SPEED * delta
 	_lifetime_timer -= delta
@@ -18,8 +21,6 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("enemies"):
 		if body.has_method("take_damage"):
-			var kb := direction * KNOCKBACK_FORCE
-			body.take_damage(DAMAGE, kb)
+			body.take_damage(DAMAGE, direction * KNOCKBACK_FORCE)
 		elif body.has_node("Hurtbox"):
-			var kb := direction * KNOCKBACK_FORCE
-			body.get_node("Hurtbox").hurt.emit(DAMAGE, kb)
+			body.get_node("Hurtbox").hurt.emit(DAMAGE, direction * KNOCKBACK_FORCE)

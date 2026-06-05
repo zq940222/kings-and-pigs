@@ -5,7 +5,7 @@ extends Area2D
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	if SaveManager.save_data.get("crown_fragments", []).has(fragment_id):
-		queue_free()
+		queue_free.call_deferred()
 
 func _on_body_entered(body: Node) -> void:
 	if not body.is_in_group("player"):

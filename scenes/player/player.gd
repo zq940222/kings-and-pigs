@@ -111,4 +111,5 @@ func _cast_kings_aura() -> void:
 		if enemy.has_method("stun"):
 			enemy.stun(2.0)
 	await get_tree().create_timer(3.0).timeout
-	set_invincible(false)
+	if is_instance_valid(self) and current_hp > 0:
+		set_invincible(false)
