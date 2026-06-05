@@ -90,9 +90,9 @@ func set_invincible(value: bool) -> void:
 	hurtbox.invincible = value
 
 func use_skill() -> void:
-	if has_shockwave and SaveManager.has_skill("shockwave"):
+	if has_shockwave:
 		_cast_shockwave()
-	elif has_kings_aura and SaveManager.has_skill("kings_aura"):
+	elif has_kings_aura:
 		_cast_kings_aura()
 
 func _cast_shockwave() -> void:
