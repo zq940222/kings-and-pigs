@@ -6,8 +6,10 @@ class_name HUD
 @onready var skill_icons: HBoxContainer = $MarginContainer/SkillIcons
 
 const HEART_SIZE := Vector2(16, 16)
+const HEART_FULL_COLOR := Color(0.9, 0.1, 0.1, 1.0)
+const HEART_EMPTY_COLOR := Color(0.3, 0.3, 0.3, 1.0)
 
-var heart_icons: Array[TextureRect] = []
+var heart_icons: Array[ColorRect] = []
 
 func _ready() -> void:
 	assert(heart_container != null, "HUD: HeartContainer node missing")
@@ -21,15 +23,15 @@ func _init_hearts(count: int) -> void:
 		child.queue_free()
 	heart_icons.clear()
 	for i in count:
-		var icon := TextureRect.new()
+		var icon := ColorRect.new()
 		icon.custom_minimum_size = HEART_SIZE
-		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		icon.color = HEART_FULL_COLOR
 		heart_container.add_child(icon)
 		heart_icons.append(icon)
 
 func update_hp(new_hp: int) -> void:
 	for i in heart_icons.size():
-		heart_icons[i].modulate = Color.WHITE if i < new_hp else Color(0.3, 0.3, 0.3, 1.0)
+		heart_icons[i].color = HEART_FULL_COLOR if i < new_hp else HEART_EMPTY_COLOR
 
 func update_stamina(new_stamina: float) -> void:
 	stamina_bar.value = new_stamina

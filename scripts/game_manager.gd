@@ -21,7 +21,7 @@ func change_room(target_scene_path: String, spawn_point_name: String = "SpawnPoi
 
 func set_state(new_state: GameState) -> void:
 	current_state = new_state
-	if new_state == GameState.PAUSED:
+	if new_state == GameState.PAUSED or new_state == GameState.DEAD:
 		get_tree().paused = true
 	elif new_state == GameState.PLAYING:
 		get_tree().paused = false
