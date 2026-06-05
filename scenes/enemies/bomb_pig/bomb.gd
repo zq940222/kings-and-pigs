@@ -23,6 +23,6 @@ func _physics_process(delta: float) -> void:
 func _explode() -> void:
 	for body in get_tree().get_nodes_in_group("player"):
 		if global_position.distance_to(body.global_position) <= EXPLOSION_RADIUS:
-			var kb_dir := (body.global_position - global_position).normalized()
+			var kb_dir: Vector2 = (body.global_position - global_position).normalized()
 			body.take_damage(EXPLOSION_DAMAGE, kb_dir * EXPLOSION_KNOCKBACK)
 	queue_free()

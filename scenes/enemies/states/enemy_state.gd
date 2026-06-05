@@ -2,10 +2,10 @@ extends Node
 class_name EnemyState
 
 var state_machine: StateMachine = null
-var enemy: EnemyBase = null
+var enemy = null
 
 func _ready() -> void:
-	enemy = owner as EnemyBase
+	enemy = owner
 
 func enter(_msg: Dictionary = {}) -> void:
 	pass

@@ -1,4 +1,4 @@
-extends EnemyBase
+extends "res://scenes/enemies/enemy_base.gd"
 
 enum Phase { ONE, TWO, THREE }
 
@@ -41,7 +41,7 @@ func _spawn_minions() -> void:
 		get_parent().add_child(minion)
 		minion.global_position = global_position + Vector2(float(i * 2 - 1) * 80.0, 0.0)
 
-func _on_boss_died(_enemy: EnemyBase) -> void:
+func _on_boss_died(_enemy: Node) -> void:
 	SaveManager.mark_boss_defeated(boss_id)
 	if not skill_reward.is_empty():
 		SaveManager.unlock_skill(skill_reward)

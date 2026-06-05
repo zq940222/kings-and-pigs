@@ -95,6 +95,8 @@ script = ExtResource("5")
 position = Vector2(30, -20)
 shape = SubResource("AttackShape")
 
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="."]
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 position_smoothing_speed = 5.0

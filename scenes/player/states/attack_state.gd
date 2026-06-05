@@ -8,8 +8,6 @@ var _attack_done: bool = false
 func enter(_msg: Dictionary = {}) -> void:
 	player.animated_sprite.play("attack1")
 	player.hitbox.monitoring = true
-	var attack_sfx := load("res://assets/audio/attack.wav")
-	player.play_sfx(attack_sfx)
 	_combo_timer = COMBO_WINDOW
 	_attack_done = false
 	player.animated_sprite.animation_finished.connect(_on_animation_finished, CONNECT_ONE_SHOT)
