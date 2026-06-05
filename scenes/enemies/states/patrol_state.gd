@@ -13,7 +13,7 @@ func physics_update(delta: float) -> void:
 	enemy.move_and_slide()
 
 	var dist_from_origin := enemy.global_position.x - enemy.patrol_origin.x
-	if abs(dist_from_origin) >= enemy.patrol_distance:
+	if abs(dist_from_origin) >= enemy.patrol_distance and signf(dist_from_origin) == signf(_direction):
 		_direction *= -1.0
 
 	if enemy.player_ref != null:
