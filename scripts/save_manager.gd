@@ -21,21 +21,30 @@ func _init_default_save() -> void:
 func has_save() -> bool:
 	return FileAccess.file_exists(SAVE_PATH)
 
-func save() -> void:
+func save() -> bool:
 	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	if file == null:
+		push_error("SaveManager: failed to open save file for writing: %s" % FileAccess.get_open_error())
+		return false
 	file.store_string(JSON.stringify(save_data))
 	file.close()
+	return true
 
 func load_save() -> bool:
 	if not FileAccess.file_exists(SAVE_PATH):
 		return false
 	var file := FileAccess.open(SAVE_PATH, FileAccess.READ)
+	if file == null:
+		push_error("SaveManager: failed to open save file for reading: %s" % FileAccess.get_open_error())
+		return false
 	var text := file.get_as_text()
 	file.close()
 	var parsed = JSON.parse_string(text)
-	if parsed == null:
+	if not parsed is Dictionary:
+		push_error("SaveManager: save file contains unexpected JSON structure.")
 		return false
-	save_data = parsed
+	_init_default_save()
+	save_data.merge(parsed, true)
 	return true
 
 func delete_save() -> void:
