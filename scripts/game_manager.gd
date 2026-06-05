@@ -28,3 +28,17 @@ func set_state(new_state: GameState) -> void:
 
 func register_player(player: Node) -> void:
 	player_ref = player
+
+func play_bgm(stream: AudioStream) -> void:
+	var bgm_player: AudioStreamPlayer = get_node_or_null("BGMPlayer")
+	if bgm_player == null:
+		return
+	if bgm_player.stream == stream:
+		return
+	bgm_player.stream = stream
+	bgm_player.play()
+
+func stop_bgm() -> void:
+	var bgm_player: AudioStreamPlayer = get_node_or_null("BGMPlayer")
+	if bgm_player:
+		bgm_player.stop()

@@ -113,3 +113,11 @@ func _cast_kings_aura() -> void:
 	await get_tree().create_timer(3.0).timeout
 	if is_instance_valid(self) and current_hp > 0:
 		set_invincible(false)
+
+func play_sfx(stream: AudioStream) -> void:
+	if stream == null:
+		return
+	var sfx_player: AudioStreamPlayer2D = get_node_or_null("SFXPlayer")
+	if sfx_player:
+		sfx_player.stream = stream
+		sfx_player.play()
