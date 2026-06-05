@@ -12,6 +12,8 @@ func _on_animation_finished() -> void:
 
 func exit() -> void:
 	player.hitbox.monitoring = false
+	if player.animated_sprite.animation_finished.is_connected(_on_animation_finished):
+		player.animated_sprite.animation_finished.disconnect(_on_animation_finished)
 
 func physics_update(delta: float) -> void:
 	player.velocity.x = 0.0
