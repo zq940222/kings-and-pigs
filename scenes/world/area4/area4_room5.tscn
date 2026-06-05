@@ -1,0 +1,8 @@
+﻿[gd_scene format=3]
+
+[node name="Area4Room5" type="Node2D"]
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(100, 300)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
