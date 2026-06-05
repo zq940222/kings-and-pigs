@@ -13,10 +13,13 @@ func _ready() -> void:
 			child.state_machine = self
 	if not initial_state.is_empty():
 		current_state = get_node_or_null(initial_state)
-		if current_state:
-			current_state.enter({})
-		else:
+		if not current_state:
 			push_error("StateMachine: initial_state path is invalid: " + str(initial_state))
+			return
+		call_deferred("_enter_initial_state")
+
+func _enter_initial_state() -> void:
+	current_state.enter({})
 
 func transition_to(state_name: String, msg: Dictionary = {}) -> void:
 	if not states.has(state_name):

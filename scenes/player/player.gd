@@ -96,7 +96,7 @@ func use_skill() -> void:
 		_cast_kings_aura()
 
 func _cast_shockwave() -> void:
-	var wave_scene := load("res://scenes/player/shockwave.tscn")
+	var wave_scene := load("res://scenes/player/shockwave.tscn") as PackedScene
 	if wave_scene == null:
 		push_error("Player: shockwave.tscn not found")
 		return

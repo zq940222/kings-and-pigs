@@ -1,10 +1,21 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene load_steps=20 format=3]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="2"]
 [ext_resource type="SpriteFrames" path="res://resources/sprite_frames/player_frames.tres" id="3"]
 [ext_resource type="Script" path="res://scripts/hurtbox.gd" id="4"]
 [ext_resource type="Script" path="res://scripts/hitbox.gd" id="5"]
+[ext_resource type="Script" path="res://scenes/player/states/idle_state.gd" id="6"]
+[ext_resource type="Script" path="res://scenes/player/states/run_state.gd" id="7"]
+[ext_resource type="Script" path="res://scenes/player/states/jump_state.gd" id="8"]
+[ext_resource type="Script" path="res://scenes/player/states/fall_state.gd" id="9"]
+[ext_resource type="Script" path="res://scenes/player/states/attack_state.gd" id="10"]
+[ext_resource type="Script" path="res://scenes/player/states/attack_combo2_state.gd" id="11"]
+[ext_resource type="Script" path="res://scenes/player/states/attack_combo3_state.gd" id="12"]
+[ext_resource type="Script" path="res://scenes/player/states/block_state.gd" id="13"]
+[ext_resource type="Script" path="res://scenes/player/states/roll_state.gd" id="14"]
+[ext_resource type="Script" path="res://scenes/player/states/hurt_state.gd" id="15"]
+[ext_resource type="Script" path="res://scenes/player/states/dead_state.gd" id="16"]
 
 [sub_resource type="CapsuleShape2D" id="PlayerShape"]
 radius = 10.0
@@ -32,6 +43,39 @@ shape = SubResource("PlayerShape")
 script = ExtResource("2")
 initial_state = NodePath("IdleState")
 
+[node name="IdleState" type="Node" parent="StateMachine"]
+script = ExtResource("6")
+
+[node name="RunState" type="Node" parent="StateMachine"]
+script = ExtResource("7")
+
+[node name="JumpState" type="Node" parent="StateMachine"]
+script = ExtResource("8")
+
+[node name="FallState" type="Node" parent="StateMachine"]
+script = ExtResource("9")
+
+[node name="AttackState" type="Node" parent="StateMachine"]
+script = ExtResource("10")
+
+[node name="AttackCombo2State" type="Node" parent="StateMachine"]
+script = ExtResource("11")
+
+[node name="AttackCombo3State" type="Node" parent="StateMachine"]
+script = ExtResource("12")
+
+[node name="BlockState" type="Node" parent="StateMachine"]
+script = ExtResource("13")
+
+[node name="RollState" type="Node" parent="StateMachine"]
+script = ExtResource("14")
+
+[node name="HurtState" type="Node" parent="StateMachine"]
+script = ExtResource("15")
+
+[node name="DeadState" type="Node" parent="StateMachine"]
+script = ExtResource("16")
+
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 4
@@ -50,3 +94,7 @@ script = ExtResource("5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
 position = Vector2(30, -20)
 shape = SubResource("AttackShape")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 5.0

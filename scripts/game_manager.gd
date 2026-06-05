@@ -7,17 +7,42 @@ signal boss_defeated(boss_id: String)
 
 enum GameState { MAIN_MENU, PLAYING, PAUSED, DEAD, TRANSITIONING }
 
+const PLAYER_SCENE := preload("res://scenes/player/player.tscn")
+
 var current_state: GameState = GameState.MAIN_MENU
 var current_room: String = ""
 var player_ref: Node = null
+var _pending_spawn_point: String = ""
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
+func _process(_delta: float) -> void:
+	if current_state != GameState.TRANSITIONING or _pending_spawn_point == "":
+		return
+	var scene := get_tree().current_scene
+	if scene == null or scene.scene_file_path != current_room:
+		return
+	var spawn := _pending_spawn_point
+	_pending_spawn_point = ""
+	_spawn_player(spawn)
+	current_state = GameState.PLAYING
+
 func change_room(target_scene_path: String, spawn_point_name: String = "SpawnPoint") -> void:
 	current_state = GameState.TRANSITIONING
 	current_room = target_scene_path
+	_pending_spawn_point = spawn_point_name
 	get_tree().change_scene_to_file(target_scene_path)
+
+func _spawn_player(spawn_point_name: String) -> void:
+	var scene_root := get_tree().current_scene
+	var player := PLAYER_SCENE.instantiate()
+	scene_root.add_child(player)
+	var spawn_point := scene_root.get_node_or_null(spawn_point_name)
+	if spawn_point:
+		player.global_position = spawn_point.global_position
+	else:
+		player.position = Vector2(100, 300)
 
 func set_state(new_state: GameState) -> void:
 	current_state = new_state

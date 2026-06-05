@@ -16,5 +16,5 @@ func _on_hitbox_entered(hitbox: Area2D) -> void:
 	if not hitbox is Hitbox:
 		return
 	var kb_dir := (global_position - hitbox.global_position).normalized()
-	var knockback := kb_dir * hitbox.knockback_force
+	var knockback: Vector2 = kb_dir * hitbox.knockback_force
 	hurt.emit(hitbox.damage, knockback)
